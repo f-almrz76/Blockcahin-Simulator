@@ -19,17 +19,18 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
       with:
+        build-command: "sphinx-build -b html"
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: docs/build/html
     - uses: actions/checkout@v2
     # Standard drop-in approach that should work for most people.
-    - uses: ammaraskar/sphinx-action@0.4
-      with:
-        pre-build-command: python -m pip install -r help/requirements.txt
-        docs-folder: "help/"
-    # Example of using a custom build-command.
-    - uses: ammaraskar/sphinx-action@0.4
-      with:
-        build-command: "sphinx-build -b html"
-        docs-folder: "help/"
+#     - uses: ammaraskar/sphinx-action@0.4
+#       with:
+#         pre-build-command: python -m pip install -r help/requirements.txt
+#         docs-folder: "help/"
+#     # Example of using a custom build-command.
+#     - uses: ammaraskar/sphinx-action@0.4
+#       with:
+#         build-command: "sphinx-build -b html"
+#         docs-folder: "help/"
 
