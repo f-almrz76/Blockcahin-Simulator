@@ -5,6 +5,7 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v3
     - name: Build HTML
@@ -20,3 +21,15 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: docs/build/html
+    - uses: actions/checkout@v2
+    # Standard drop-in approach that should work for most people.
+    - uses: ammaraskar/sphinx-action@0.4
+      with:
+        pre-build-command: python -m pip install -r help/requirements.txt
+        docs-folder: "help/"
+    # Example of using a custom build-command.
+    - uses: ammaraskar/sphinx-action@0.4
+      with:
+        build-command: "sphinx-build -b html"
+        docs-folder: "help/"
+
