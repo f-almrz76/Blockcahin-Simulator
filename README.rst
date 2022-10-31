@@ -5,4 +5,4 @@ BLOCKCHAIN SIMULATOR
 the impact of their behavior during the mining process.
 
 `For more information check out (https://blockcahin-simulator.readthedocs.io/en/latest/)`
-Use `git status` to list all new or modified files that haven't yet been committed.
+
